@@ -16,30 +16,6 @@ def lenx(data):
         count = count + 1
   return count
 
-def wordcut():
-  output = {}
-  data = request.json
-  output["output"] = tk(data['data'])
-  return output
-
-def wordx():
-  output = {}
-  data = request.json
-  wc = tk(data['data'])
-  wb = []
-  w1 = ""
-  count = 1
-  for i in wc:
-    if lenx(w1)+lenx(i) > data['size']:
-      wb.append(w1)
-      w1 = i
-      continue
-    w1 = w1+i
-  if w1!="":
-    wb.append(w1)
-  output['output'] = wb
-  return output
-
 class WordCut(tornado.web.RequestHandler):
   def set_default_headers(self):
     self.set_header("Access-Control-Allow-Origin", "*")
@@ -70,7 +46,6 @@ class Wordx(tornado.web.RequestHandler):
     wc = tk(data['data'])
     wb = []
     w1 = ""
-    count = 1
     for i in wc:
       if lenx(w1)+lenx(i) > data['size']:
         wb.append(w1)
