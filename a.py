@@ -33,7 +33,6 @@ def wordx():
   wc = tk(data['data'])
   wb = []
   w1 = ""
-  count = 1
   for i in wc:
     if lenx(w1)+lenx(i) > data['size']:
       wb.append(w1)
