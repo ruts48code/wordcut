@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY a.py .
+COPY b.py .
 
-CMD [ "pypy3", "./a.py" ]
+CMD [ "pypy3", "./b.py" ]
 
