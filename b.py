@@ -16,7 +16,7 @@ def lenx(data):
         count = count + 1
   return count
 
-class WordCut(tornado.web.RequestHandler):
+class Cors(tornado.web.RequestHandler):
   def set_default_headers(self):
     self.set_header("Access-Control-Allow-Origin", "*")
     self.set_header("Access-Control-Allow-Headers", "Content-Type")
@@ -24,6 +24,8 @@ class WordCut(tornado.web.RequestHandler):
   def options(self):
     self.set_status(204)
     self.finish()
+
+class WordCut(Cors):
   def post(self):
     self.set_header("Content-Type", "application/json")
     output = {}
@@ -31,14 +33,7 @@ class WordCut(tornado.web.RequestHandler):
     output["output"] = tk(data['data'])
     self.write(json.dumps(output))
   
-class Wordx(tornado.web.RequestHandler):
-  def set_default_headers(self):
-    self.set_header("Access-Control-Allow-Origin", "*")
-    self.set_header("Access-Control-Allow-Headers", "Content-Type")
-    self.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-  def options(self):
-    self.set_status(204)
-    self.finish()
+class Wordx(Cors):
   def post(self):
     self.set_header("Content-Type", "application/json")
     output = {}
