@@ -10,7 +10,7 @@ def lenx(data):
   count = 0
   for i in data:
     match i:
-      case '่'|'้'|'๊'|'๋'|'ิ'|'ี'|'ึ'|'ื'|'ั'|'ุ'|'ู':
+      case '่'|'้'|'๊'|'๋'|'ิ'|'ี'|'ึ'|'ื'|'ั'|'ุ'|'ู'|'์'|'็':
         pass
       case _:
         count = count + 1
@@ -32,7 +32,7 @@ class WordCut(Cors):
     data = json.loads(self.request.body.decode('utf-8'))
     output["output"] = tk(data['data'])
     self.write(json.dumps(output))
-  
+
 class Wordx(Cors):
   def post(self):
     self.set_header("Content-Type", "application/json")
@@ -62,4 +62,3 @@ async def main():
 
 if __name__=="__main__":
   asyncio.run(main())
-

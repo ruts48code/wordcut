@@ -11,7 +11,7 @@ def lenx(data):
   count = 0
   for i in data:
     match i:
-      case '่'|'้'|'๊'|'๋'|'ิ'|'ี'|'ึ'|'ื'|'ั'|'ุ'|'ู':
+      case '่'|'้'|'๊'|'๋'|'ิ'|'ี'|'ึ'|'ื'|'ั'|'ุ'|'ู'|'์'|'็':
         pass
       case _:
         count = count + 1
